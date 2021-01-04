@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,11 @@ import { ListProfilsSortieComponent } from './profils-sortie/list-profils-sortie
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CreateReferentielComponent } from './referentiel/create-referentiel/create-referentiel.component';
 import { ListReferentielsComponent } from './referentiel/list-referentiels/list-referentiels.component';
+import { CreatePromoComponent } from './promo/create-promo/create-promo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { DetailProfilComponent } from './profils/detail-profil/detail-profil.component';
+import { EditProfilComponent } from './profils/edit-profil/edit-profil.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +48,18 @@ import { ListReferentielsComponent } from './referentiel/list-referentiels/list-
     ListProfilsSortieComponent,
     SidebarComponent,
     CreateReferentielComponent,
-    ListReferentielsComponent
+    ListReferentielsComponent,
+    CreatePromoComponent,
+    HomeComponent,
+    DetailProfilComponent,
+    EditProfilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

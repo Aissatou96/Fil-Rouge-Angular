@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Update Profil</h1>
+  
+    <a href="#" routerLink="profils" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="libelle">Libelle:</label>
+            <input 
+                formControlName="libelle"
+                id="libelle" 
+                type="text" 
+                [(ngModel)]="profil.libelle"
+                class="form-control">
+            <div *ngIf="f.libelle.touched && f.libelle.invalid" class="alert alert-danger">
+                <div *ngIf="f.libelle.errors.required">Libelle is required.</div>
+            </div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

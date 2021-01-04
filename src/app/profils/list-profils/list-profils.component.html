@@ -1,63 +1,26 @@
-
- 
 <div class="container">
-  <h2> liste des Profils<a href="addProfil"><i class="fas fa-user-plus"></i></a></h2>
+  <h2> liste des Profils</h2>
+    <a routerLink='addProfil'><i class="fas fa-user-plus"></i></a>
+
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Libellé</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Administrateur</td>
+      <tr *ngFor="let profil of profils">
+        <td>{{ profil.id }}</td>
+        <td>{{ profil.libelle }}</td>
         <td>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-warning">UPDATE</button>
-            <button type="button" class="btn btn-danger">DELETE</button>
-          </div>
-        </td>
-       
-  
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Formateur</td>
-        <td>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-warning">UPDATE</button>
-            <button type="button" class="btn btn-danger">DELETE</button>
-          </div>
+          <a href="#" [routerLink]="['profil/:id/detail']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['profil/:id/edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteProfil(profil.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
-
-      <tr>
-        <th scope="row">3</th>
-        <td>Community Manager</td>
-        <td>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-warning">UPDATE</button>
-            <button type="button" class="btn btn-danger">DELETE</button>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <th scope="row">4</th>
-        <td>Apprenant</td>
-        <td>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-warning">UPDATE</button>
-            <button type="button" class="btn btn-danger">DELETE</button>
-          </div>
-        </td>
-      </tr>
-
-     
     </tbody>
   </table>
 </div>
