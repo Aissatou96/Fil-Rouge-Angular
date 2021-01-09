@@ -49,8 +49,8 @@
             
             <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fas fa-cog ml-4"></i><br><span>Paramètres</span></a>
             <div class="dropdown-menu">
-              <a routerLink="listProfils" class="dropdown-item"><i class="far fa-id-card"></i> Profils</a>
-              <a routerLink="listPrSortie" class="dropdown-item"><i class="fas fa-list-ol"></i> Profils de sortie</a>
+              <a [routerLink]='["/profils"]' class="dropdown-item"><i class="far fa-id-card"></i> Profils</a>
+              <a [routerLink]='["/profilsSortie"]' class="dropdown-item"><i class="fas fa-list-ol"></i> Profils de sortie</a>
               <a routerLink="listComp" class="dropdown-item"><i class="fa fa-sliders"></i> Compétences</a>
               <a routerLink="listGrpComp" class="dropdown-item"><i class="fa fa-sliders"></i> Groupe de Compétences</a>
               <a routerLink="listRefs" class="dropdown-item"><i class="fa fa-sliders"></i>Référentiels</a>
@@ -70,7 +70,7 @@
             <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fas fa-user"></i><br><span>User</span></a>
             <div class="dropdown-menu">
               <a routerLink="addUser" class="dropdown-item"><i class="fa fa-user-o"></i> Create User</a>
-              <a routerLink="listUsers" class="dropdown-item"><i class="fas fa-list-ol"></i> List Users</a>
+              <a routerLink='users' class="dropdown-item"><i class="fas fa-list-ol"></i> List Users</a>
               <a routerLink="#" class="dropdown-item"><i class="fa fa-sliders"></i> Détail User</a>
               <div class="divider dropdown-divider"></div>
               <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
@@ -80,12 +80,12 @@
 
         <a href="#" class="navbar-brand"><i class="fas fa-graduation-cap"></i><b>SONATEL ACADEMY</b></a> 
 
-        <form class="navbar-form form-inline">
+        <!-- <form class="navbar-form form-inline">
           <div class="input-group search-box">								
             <input type="text" id="search" class="form-control" placeholder="Search here...">
             <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
           </div> 		
-        </form>
+        </form> -->
       </div>
     </nav>
     

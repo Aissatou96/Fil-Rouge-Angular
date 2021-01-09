@@ -27,6 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { DetailProfilComponent } from './profils/detail-profil/detail-profil.component';
 import { EditProfilComponent } from './profils/edit-profil/edit-profil.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { DetailProfilSortieComponent } from './profils-sortie/detail-profil-sortie/detail-profil-sortie.component';
+import { EditProfilSortieComponent } from './profils-sortie/edit-profil-sortie/edit-profil-sortie.component';
+import { JwtInterceptorProviders} from './services/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { EditProfilComponent } from './profils/edit-profil/edit-profil.component
     CreatePromoComponent,
     HomeComponent,
     DetailProfilComponent,
-    EditProfilComponent
+    EditProfilComponent,
+    EditUserComponent,
+    DetailProfilSortieComponent,
+    EditProfilSortieComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,9 @@ import { EditProfilComponent } from './profils/edit-profil/edit-profil.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    JwtInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
