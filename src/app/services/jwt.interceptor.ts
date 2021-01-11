@@ -18,22 +18,21 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private token: TokenStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let authReq = req;
-    const token = this.token.getToken();
-    console.log(token);
-    
-    if (token != null) {
-  
-      // authReq = req.clone({ 
-      //   headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token) 
-      // });
 
+    let authReq = req;
+
+    const token = this.token.getToken();
+
+    if (token!= null) {
+      const tokenValue = (JSON.parse(token))['token'];
       authReq = req.clone({ 
         setHeaders: {
-          TOKEN_HEADER_KEY:`Bearer ${token}`
-        } 
+          Authorization: `Bearer ${tokenValue}`
+        }
+        // headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token) 
       });
     }
+    
     return next.handle(authReq);
   }
 }

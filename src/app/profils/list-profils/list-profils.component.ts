@@ -15,7 +15,7 @@ export class ListProfilsComponent implements OnInit {
 
   ngOnInit(): void {
     this.profilService.getAll().subscribe((data: Profil[])=>{
-      this.profils = data;
+      this.profils = data['hydra:member'];
       console.log(this.profils);
     })  
   }

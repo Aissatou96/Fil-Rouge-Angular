@@ -15,6 +15,12 @@ import { CreateProfilSortieComponent } from './profils-sortie/create-profil-sort
 import { ListProfilsSortieComponent } from './profils-sortie/list-profils-sortie/list-profils-sortie.component';
 import { DetailProfilSortieComponent } from './profils-sortie/detail-profil-sortie/detail-profil-sortie.component';
 import { EditProfilSortieComponent } from './profils-sortie/edit-profil-sortie/edit-profil-sortie.component';
+import { CreateCompetenceComponent } from './competences/create-competence/create-competence.component';
+import { ListCompetencesComponent } from './competences/list-competences/list-competences.component';
+import { CreateGrpCompComponent } from './groupe-competences/create-grp-comp/create-grp-comp.component';
+import { ListGrpCompComponent } from './groupe-competences/list-grp-comp/list-grp-comp.component';
+import { CreateReferentielComponent } from './referentiel/create-referentiel/create-referentiel.component';
+import { CreatePromoComponent } from './promo/create-promo/create-promo.component';
 
 
 const routes: Routes = [
@@ -35,6 +41,17 @@ const routes: Routes = [
   { path: 'profilsSortie', component:ListProfilsSortieComponent },
   { path: 'profilS/:id/detail', component:DetailProfilSortieComponent },  
   { path: 'profilS/:id/edit', component: EditProfilSortieComponent },
+
+  { path: 'addCompet', component:CreateCompetenceComponent },
+  { path:'compet', component:ListCompetencesComponent },
+
+  { path: 'addGrpComp', component:CreateGrpCompComponent},
+  { path: 'grpCompet', component:ListGrpCompComponent},
+
+  { path:'addRef', component:CreateReferentielComponent},
+  {path: 'refs', component:CreateReferentielComponent},
+
+  {path:'addPromo', component:CreatePromoComponent},
 
   { path: '', redirectTo: 'login', pathMatch: 'full'}
   

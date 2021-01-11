@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="container">
 
        <h2>Création Profil</h2>
@@ -8,9 +10,9 @@
             <label for="lib" class="col-sm-2 col-form-label">Libelle</label>
             <div class="col-sm-8">
                 <input type="text" id="lib" class="form-control" formControlName="libelle">
-                <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+                <!-- <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
                     <div *ngIf="f.libelle.errors.required">Libelle is required.</div>
-                </div>
+                </div> -->
             </div>
         </div>
 
