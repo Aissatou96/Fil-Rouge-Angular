@@ -10,7 +10,7 @@ import { ProfilService } from '../../services/profil.service';
 })
 export class CreateProfilComponent implements OnInit {
 
-  form: FormGroup;
+  profilForm: FormGroup;
 
   constructor(
     private profilService : ProfilService,
@@ -18,18 +18,14 @@ export class CreateProfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      libelle: new FormControl('', [Validators.required])
+    this.profilForm = new FormGroup({
+      'libelle': new FormControl('', [Validators.required])
     });
   }
-   
-  get f(){
-    return this.form.controls;
-  }
     
-  submit(){
-    console.log(this.form.value);
-    this.profilService.create(this.form.value).subscribe(res => {
+  createProfil(){
+    console.log(this.profilForm.value);
+    this.profilService.create(this.profilForm.value).subscribe(res => {
          console.log('Profil created successfully!');
          this.router.navigateByUrl('profils');
     })

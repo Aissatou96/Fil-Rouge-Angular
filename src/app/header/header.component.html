@@ -28,20 +28,20 @@
           
           <a href="#" class="nav-item nav-link"><i class="fas fa-history"></i><span>Historique des promos</span></a>		
           <a href="#" class="nav-item nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a>
-          <div class="nav-item dropdown">
-            <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fas fa-user"></i><br><span>User</span></a>
+          
+        </div>
+
+         <div class="nav-item dropdown mr-10">
+            <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><i class="fas fa-user"></i><span>User</span></a>
             <div class="dropdown-menu">
-              <a [routerLink]='["/addUser"]' class="dropdown-item"><i class="fa fa-user-o"></i> Create User</a>
+              <a [routerLink]="'addUser'" class="dropdown-item"><i class="fa fa-user-o"></i> Create User</a>
               <a [routerLink]='["/users"]' class="dropdown-item"><i class="fas fa-list-ol"></i> List Users</a>
               <a [routerLink]='["/user/:id/detail"]' class="dropdown-item"><i class="fa fa-sliders"></i> Détail User</a>
-              <a [routerLink]='["user/:id/edit"]' class="dropdown-item"><i class="fa fa-sliders"></i> Edit User</a>
+              <a [routerLink]='["/user/:id/edit"]' class="dropdown-item"><i class="fa fa-sliders"></i> Edit User</a>
               <div class="divider dropdown-divider"></div>
               <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
             </div>
           </div>
-        </div>
-
-        <a href="#" class="navbar-brand"><i class="fas fa-graduation-cap"></i><b>SONATEL ACADEMY</b></a> 
 
         <!-- <form class="navbar-form form-inline">
           <div class="input-group search-box">								

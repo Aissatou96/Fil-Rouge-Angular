@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { DataService } from '../../services/data.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 import { User } from '../models/user';
 
 @Component({
@@ -10,42 +11,35 @@ import { User } from '../models/user';
 })
 export class CreateUserComponent implements OnInit {
 
-  userForm : FormGroup;
-  user:any;
+  userForm:FormGroup;
+  options:string[]=['Admin', 'Formateur', 'CM'];
 
-  constructor(private service: DataService, private formBuilder : FormBuilder) { }
+  constructor(
+    private userService : UserService,
+    private router:Router
+    ) { }
 
-  ngOnInit() {
-    this.initUserForm();
+  ngOnInit():void {
+    this.userForm = new FormGroup({
+      'prenom': new FormControl(),
+      'nom': new FormControl(),
+      'email':new FormControl(),
+      'username':new FormControl(),
+      'password':new FormControl(),
+      'statut':new FormControl(),
+      'profil': new FormControl()
+    });
    }
 
-   initUserForm(){
-      this.userForm = this.formBuilder.group({
-        avatar:this.formBuilder.control(""),
-        prenom:this.formBuilder.control(""),
-        nom:this.formBuilder.control(""),
-        email:this.formBuilder.control(""),
-        username:this.formBuilder.control(""),
-        password:this.formBuilder.control(""),
-        statut:this.formBuilder.control(""),
-        profil:this.formBuilder.control("")
+   createUser(){
+     console.log(this.userForm.value);
+    this.userService.create(this.userForm.value).subscribe(res => {
+      console.log('User created successfully!');
+      this.router.navigateByUrl('users');
+    });
 
-      });
-   }
+  }
 
-   createUser(user):void{
-      this.service.create(user)
-        .subscribe(response=>{
-          console.log(response);
-        })
-   }
 
-   updateUser(){
-
-   }
-
-   deleteUser(){
-
-   }
-
+  
 }

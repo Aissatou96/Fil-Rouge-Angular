@@ -15,7 +15,7 @@ export class ListProfilsSortieComponent implements OnInit {
 
   ngOnInit(): void {
     this.profilSortieService.getAll().subscribe((data: ProfilSortie[])=>{
-      this.profilsSor = data;
+      this.profilsSor = data['hydra:member'];
       console.log(this.profilsSor);
     })  
   }

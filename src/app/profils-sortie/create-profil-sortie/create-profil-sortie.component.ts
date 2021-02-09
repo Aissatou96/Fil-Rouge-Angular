@@ -10,7 +10,7 @@ import {ProfilSortieService} from '../../services/profil-sortie.service';
 })
 export class CreateProfilSortieComponent implements OnInit {
 
-  form: FormGroup;
+  psForm: FormGroup;
 
   constructor(
     private profilSortieService : ProfilSortieService,
@@ -18,20 +18,16 @@ export class CreateProfilSortieComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      libelle: new FormControl('', [Validators.required])
+    this.psForm = new FormGroup({
+      'libelle': new FormControl('', [Validators.required])
     });
   }
-   
-  get f(){
-    return this.form.controls;
-  }
     
-  submit(){
-    console.log(this.form.value);
-    this.profilSortieService.create(this.form.value).subscribe(res => {
-         console.log('Profil created successfully!');
-         this.router.navigateByUrl('profils');
+  createPs(){
+    console.log(this.psForm.value);
+    this.profilSortieService.create(this.psForm.value).subscribe(res => {
+         console.log('Profil de Sortie created successfully!');
+         this.router.navigateByUrl('profilsSortie');
     })
   }
 

@@ -1,23 +1,23 @@
+<app-header></app-header>
+
 <div class="container">
+
     <h1>Update Profil</h1>
   
-    <a href="#" routerLink="profils" class="btn btn-primary">Back</a>
+    <a [routerLink]='["/profils"]' class="btn btn-primary">Back</a>
         
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="profilForm" (ngSubmit)="updateProfil()">
   
         <div class="form-group">
             <label for="libelle">Libelle:</label>
             <input 
-                formControlName="libelle"
+                [formControlName]="'libelle'"
                 id="libelle" 
                 type="text" 
                 [(ngModel)]="profil.libelle"
                 class="form-control">
-            <div *ngIf="f.libelle.touched && f.libelle.invalid" class="alert alert-danger">
-                <div *ngIf="f.libelle.errors.required">Libelle is required.</div>
-            </div>
         </div>
         
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!profilForm.valid">Update</button>
     </form>
 </div>

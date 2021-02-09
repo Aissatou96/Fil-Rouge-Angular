@@ -34,7 +34,7 @@ export class ProfilService {
     )
   }  
    
-  find(id): Observable<Profil> {
+  getOne(id): Observable<Profil> {
     return this.httpClient.get<Profil>(environment.apiUrl + '/admin/profils/' + id)
     .pipe(
       catchError(this.errorHandler)
@@ -65,4 +65,5 @@ export class ProfilService {
     }
     return throwError(errorMessage);
  }
+
 }

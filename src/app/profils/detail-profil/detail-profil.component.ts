@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Profil } from '../profil';
 import { ProfilService } from '../../services/profil.service';
 
@@ -15,15 +15,13 @@ export class DetailProfilComponent implements OnInit {
 
   constructor(
     public profilService:ProfilService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['postId'];
-      
-    this.profilService.find(this.id).subscribe((data: Profil)=>{
-      this.profil = data;
+    this.id = +this.route.snapshot.params['id']; 
+    this.profilService.getOne(this.id).subscribe((data: Profil)=>{
+      this.profil = data['hydra:member'];
     });
   }
 

@@ -13,7 +13,7 @@ export class EditProfilComponent implements OnInit {
 
   id: number;
   profil: Profil;
-  form: FormGroup;
+  profilForm: FormGroup;
 
   constructor(
     public profilService:ProfilService,
@@ -22,23 +22,19 @@ export class EditProfilComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.id = this.route.snapshot.params['postId'];
-      this.profilService.find(this.id).subscribe((data: Profil)=>{
-        this.profil = data;
+      this.id = +this.route.snapshot.params['id'];
+      this.profilService.getOne(this.id).subscribe((data: Profil)=>{
+        this.profil = data['hydra:member'];
       });
       
-      this.form = new FormGroup({
-        libelle: new FormControl('', [Validators.required])
+      this.profilForm = new FormGroup({
+        'libelle': new FormControl('', [Validators.required])
       });
     }
-     
-    get f(){
-      return this.form.controls;
-    }
-       
-    submit(){
-      console.log(this.form.value);
-      this.profilService.update(this.id, this.form.value).subscribe(res => {
+           
+    updateProfil(){
+      console.log(this.profilForm.value);
+      this.profilService.update(this.id, this.profilForm.value).subscribe(res => {
            console.log('Profil updated successfully!');
            this.router.navigateByUrl('profils');
       })

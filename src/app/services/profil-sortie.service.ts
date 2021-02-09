@@ -34,7 +34,7 @@ export class ProfilSortieService {
     )
   }  
    
-  find(id): Observable<ProfilSortie> {
+  getOne(id): Observable<ProfilSortie> {
     return this.httpClient.get<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id)
     .pipe(
       catchError(this.errorHandler)

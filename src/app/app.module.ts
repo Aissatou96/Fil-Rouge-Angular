@@ -31,6 +31,16 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { DetailProfilSortieComponent } from './profils-sortie/detail-profil-sortie/detail-profil-sortie.component';
 import { EditProfilSortieComponent } from './profils-sortie/edit-profil-sortie/edit-profil-sortie.component';
 import { JwtInterceptorProviders} from './services/jwt.interceptor';
+import { UploadImageComponent } from './user/upload-image/upload-image.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditGrpCompComponent } from './groupe-competences/edit-grp-comp/edit-grp-comp.component';
+import { EditReferentielComponent } from './referentiel/edit-referentiel/edit-referentiel.component';
+import { DashboardFormateurComponent } from './formateur/dashboard-formateur/dashboard-formateur.component';
+import { DashboardApprenantComponent } from './apprenant/dashboard-apprenant/dashboard-apprenant.component';
+import { DashboardCmComponent } from './cm/dashboard-cm/dashboard-cm.component';
+import { ItemReferentielComponent } from './referentiel/list-referentiels/item-referentiel/item-referentiel.component';
+import { DetailReferentielComponent } from './referentiel/detail-referentiel/detail-referentiel.component';
+//import { IfRolesDirective } from './if-roles.directive';
 
 @NgModule({
   declarations: [
@@ -59,7 +69,17 @@ import { JwtInterceptorProviders} from './services/jwt.interceptor';
     EditProfilComponent,
     EditUserComponent,
     DetailProfilSortieComponent,
-    EditProfilSortieComponent
+    EditProfilSortieComponent,
+    UploadImageComponent,
+    PageNotFoundComponent,
+    EditGrpCompComponent,
+    EditReferentielComponent,
+    DashboardFormateurComponent,
+    DashboardApprenantComponent,
+    DashboardCmComponent,
+    ItemReferentielComponent,
+    DetailReferentielComponent,
+    //IfRolesDirective
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,16 @@
 <div class="container">
-    <h1>Détail Profils</h1>
+    
+    <h1>DETAIL DU PROFIL</h1>
   
-    <a href="#" routerLink="profils" class="btn btn-primary">Back</a>
+    <a [routerLink]='["/profils"]' class="btn btn-primary">Back</a>
    
     <div>
-        <strong>ID:</strong>
+        <h2>ID:</h2>
         <p>{{ profil.id }}</p>
     </div>
    
     <div>
-        <strong>Libelle:</strong>
+        <h2>Libelle:</h2>
         <p>{{ profil.libelle }}</p>
     </div>
    

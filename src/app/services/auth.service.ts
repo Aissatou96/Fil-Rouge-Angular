@@ -23,8 +23,10 @@ export class AuthService {
         return this.currentUserSubject.value;
     }
 
+
     login(username: string, password: string) {
         return this.http.post<any>("api/login_check", { username, password })
+        
             .pipe(map(user => {
                 console.log(user)
         
@@ -33,9 +35,9 @@ export class AuthService {
                    let dToken = this.decodeToken(user.token);
                    console.log(dToken);
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                  
                     this.currentUserSubject.next(user);
                 }
-
                 return user;
             }));
     }

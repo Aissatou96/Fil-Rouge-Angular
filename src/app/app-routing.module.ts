@@ -21,39 +21,77 @@ import { CreateGrpCompComponent } from './groupe-competences/create-grp-comp/cre
 import { ListGrpCompComponent } from './groupe-competences/list-grp-comp/list-grp-comp.component';
 import { CreateReferentielComponent } from './referentiel/create-referentiel/create-referentiel.component';
 import { CreatePromoComponent } from './promo/create-promo/create-promo.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditGrpCompComponent } from './groupe-competences/edit-grp-comp/edit-grp-comp.component';
+import { EditReferentielComponent } from './referentiel/edit-referentiel/edit-referentiel.component';
+import { ListReferentielsComponent } from './referentiel/list-referentiels/list-referentiels.component';
+import { DetailReferentielComponent } from './referentiel/detail-referentiel/detail-referentiel.component';
+//import {AuthGuard} from '../../src/app/guards/auth.guard';
 
 
 const routes: Routes = [
  
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+
   { path:"login", component: LoginComponent},
-  { path:"home", component: HomeComponent} ,
+
+  { path:"home", component: HomeComponent},
+
+
   { path: 'addProfil', component: CreateProfilComponent },
-  { path: 'profils', component: ListProfilsComponent },
-  { path: 'profil/:id/detail', component: DetailProfilComponent },  
-  { path: 'profil/:id/edit', component: EditProfilComponent },
+  { 
+    path:'profils', 
+    component:ListProfilsComponent, 
+    children:[
+                { path: ':id/detail', component: DetailProfilComponent },  
+                { path: ':id/edit', component: EditProfilComponent }
+             ] 
+  },
 
   { path:"addUser", component:CreateUserComponent},
-  { path:"users", component:ListUsersComponent},
-  { path:'user/:id/detail', component:DetailUserComponent},
-  { path:'user/:id/edit', component:EditUserComponent},
+  { 
+    path:"users", 
+    component:ListUsersComponent,
+    children:[
+              { path:':id/detail', component:DetailUserComponent},
+              { path:':id/edit', component:EditUserComponent}
+             ]
+  },
 
   { path: 'addPS', component: CreateProfilSortieComponent},
-  { path: 'profilsSortie', component:ListProfilsSortieComponent },
-  { path: 'profilS/:id/detail', component:DetailProfilSortieComponent },  
-  { path: 'profilS/:id/edit', component: EditProfilSortieComponent },
+  { 
+    path: 'profilsSortie', component:ListProfilsSortieComponent,
+    children:[
+                { path: ':id/detail', component:DetailProfilSortieComponent },  
+                { path: ':id/edit', component: EditProfilSortieComponent }
+             ]
+  },
 
   { path: 'addCompet', component:CreateCompetenceComponent },
   { path:'compet', component:ListCompetencesComponent },
 
   { path: 'addGrpComp', component:CreateGrpCompComponent},
-  { path: 'grpCompet', component:ListGrpCompComponent},
+  { 
+    path: 'grpCompet', 
+    component:ListGrpCompComponent,
+    children:[
+                { path:':id/edit', component:EditGrpCompComponent }
+             ]
+  },
 
   { path:'addRef', component:CreateReferentielComponent},
-  {path: 'refs', component:CreateReferentielComponent},
+  {
+    path: 'refs', component:ListReferentielsComponent,
+    children:[
+              { path:':id/edit', component:EditReferentielComponent },
+              { path:':id/detail', component:DetailReferentielComponent}
+             ]
+  },
 
   {path:'addPromo', component:CreatePromoComponent},
 
-  { path: '', redirectTo: 'login', pathMatch: 'full'}
+  { path:'not-found', component:PageNotFoundComponent},
+  { path: '**', redirectTo:'/not-found'}
   
 ];
 

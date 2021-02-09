@@ -2,22 +2,21 @@
 
 <div class="container">
 
-       <h2>Création Profil</h2>
-       <a href="#" routerLink="profils" class="btn btn-primary">Back</a>
+       <a [routerLink]='["/profils"]' class="btn btn-primary">Back</a>
 
-    <form [formGroup]="form" (ngSubmit)="submit()">
+       <h2>Création Profil</h2>
+
+    <form [formGroup]="profilForm" (ngSubmit)="createProfil()">
+
         <div class="form-group row">
             <label for="lib" class="col-sm-2 col-form-label">Libelle</label>
             <div class="col-sm-8">
-                <input type="text" id="lib" class="form-control" formControlName="libelle">
-                <!-- <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
-                    <div *ngIf="f.libelle.errors.required">Libelle is required.</div>
-                </div> -->
+                <input type="text" id="lib" class="form-control" [formControlName]="'libelle'">
             </div>
         </div>
 
     <div>
-        <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-lg btn-block">
+        <button type="submit" [disabled]="!profilForm.valid" class="btn btn-primary btn-lg btn-block">
             SOUMETTRE
         </button>
     </div>
