@@ -1,1 +1,47 @@
-<p>detail-user works!</p>
+<div class="container">
+    
+    <h1>DETAIL DE L'UTILISATEUR</h1>
+  
+    <a [routerLink]='["/users"]' class="btn btn-primary">Back</a>
+   
+    <div>
+        <h2>ID:</h2>
+        <p>{{ user.id }}</p>
+    </div>
+   
+    <div>
+        <h2>Avatar:</h2>
+        <p>{{ user.avatar }}</p>
+    </div>
+
+    <div>
+        <h2>Prenom:</h2>
+        <p>{{ user.prenom }}</p>
+    </div>
+
+    <div>
+        <h2>Nom:</h2>
+        <p>{{ user.nom }}</p>
+    </div>
+   
+    <div>
+        <h2>Email:</h2>
+        <p>{{ user.email }}</p>
+    </div>
+    
+    <div>
+        <h2>Username:</h2>
+        <p>{{ user.username }}</p>
+    </div>
+
+    <div>
+        <h2>Statut:</h2>
+        <p>{{ user.statut }}</p>
+    </div>
+
+    <div>
+        <h2>Profil:</h2>
+        <p>{{ user.profil}}</p>
+    </div>
+
+</div>

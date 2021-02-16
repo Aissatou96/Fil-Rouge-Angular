@@ -21,7 +21,9 @@ export class DetailProfilComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this.route.snapshot.params['id']; 
     this.profilService.getOne(this.id).subscribe((data: Profil)=>{
-      this.profil = data['hydra:member'];
+      this.profil = data;
+      console.log(data);
+      
     });
   }
 

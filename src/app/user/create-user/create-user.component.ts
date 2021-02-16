@@ -10,9 +10,10 @@ import { User } from '../models/user';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-
+  imageUrl = '';
   userForm:FormGroup;
-  options:string[]=['Admin', 'Formateur', 'CM'];
+  image: File;
+  options:string[]=['ADMIN', 'FORMATEUR', 'CM', 'APPRENANT'];
 
   constructor(
     private userService : UserService,
@@ -27,15 +28,37 @@ export class CreateUserComponent implements OnInit {
       'username':new FormControl(),
       'password':new FormControl(),
       'statut':new FormControl(),
-      'profil': new FormControl()
+      'type': new FormControl(),
+      'avatar': new FormControl()
     });
+   }
+   SelectedFile(file: FileList){
+     this.image = file.item(0);
+     const reader =new FileReader();
+     reader.onload= (event: any)=>{
+       this.imageUrl = event.target.result;
+     };
+     reader.readAsDataURL(this.image);
    }
 
    createUser(){
+     const user = new FormData();
+     user.append('prenom',this.userForm.value.prenom);
+     user.append('nom',this.userForm.value.nom);
+     user.append('email',this.userForm.value.email);
+     user.append('username',this.userForm.value.prenom);
+     user.append('password',this.userForm.value.password);
+     user.append('statut',this.userForm.value.statut);
+     user.append('type',this.userForm.value.type);
+     user.append('avatar',this.image);
      console.log(this.userForm.value);
-    this.userService.create(this.userForm.value).subscribe(res => {
+    this.userService.create(user).subscribe(
+      (res) => {
       console.log('User created successfully!');
-      this.router.navigateByUrl('users');
+      //this.router.navigateByUrl('users');
+    },(error)=>{
+      console.log(error);
+      
     });
 
   }

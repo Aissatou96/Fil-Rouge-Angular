@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GrpCompetences } from '../grp-competences';
 
 @Component({
   selector: 'app-list-grp-comp',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListGrpCompComponent implements OnInit {
 
+  grpC:GrpCompetences []=[];
   constructor() { }
 
   ngOnInit(): void {

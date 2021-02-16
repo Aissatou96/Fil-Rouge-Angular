@@ -12,7 +12,7 @@ import { ProfilService } from '../../services/profil.service';
 export class EditProfilComponent implements OnInit {
 
   id: number;
-  profil: Profil;
+  profil='';
   profilForm: FormGroup;
 
   constructor(
@@ -24,7 +24,9 @@ export class EditProfilComponent implements OnInit {
     ngOnInit(): void {
       this.id = +this.route.snapshot.params['id'];
       this.profilService.getOne(this.id).subscribe((data: Profil)=>{
-        this.profil = data['hydra:member'];
+        console.log(data);
+        
+        this.profil = data.libelle;
       });
       
       this.profilForm = new FormGroup({

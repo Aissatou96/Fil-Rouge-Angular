@@ -42,7 +42,7 @@ export class ProfilService {
   }
    
   update(id, profil): Observable<Profil> {
-    return this.httpClient.put<Profil>(environment.apiUrl + '/admin/profils/' + id, JSON.stringify(profil), this.httpOptions)
+    return this.httpClient.put<Profil>(environment.apiUrl + '/admin/profils/' + id , JSON.stringify(profil), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

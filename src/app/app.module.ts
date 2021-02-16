@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+//import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { DashboardApprenantComponent } from './apprenant/dashboard-apprenant/das
 import { DashboardCmComponent } from './cm/dashboard-cm/dashboard-cm.component';
 import { ItemReferentielComponent } from './referentiel/list-referentiels/item-referentiel/item-referentiel.component';
 import { DetailReferentielComponent } from './referentiel/detail-referentiel/detail-referentiel.component';
+import { ItemGrpCompComponent } from './groupe-competences/list-grp-comp/item-grp-comp/item-grp-comp.component';
 //import { IfRolesDirective } from './if-roles.directive';
 
 @NgModule({
@@ -79,6 +81,7 @@ import { DetailReferentielComponent } from './referentiel/detail-referentiel/det
     DashboardCmComponent,
     ItemReferentielComponent,
     DetailReferentielComponent,
+    ItemGrpCompComponent,
     //IfRolesDirective
   ],
   imports: [
@@ -86,7 +89,9 @@ import { DetailReferentielComponent } from './referentiel/detail-referentiel/det
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //NgxQRCodeModule
+    
   ],
   providers: [
     JwtInterceptorProviders

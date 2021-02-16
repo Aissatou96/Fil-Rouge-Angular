@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <form [formGroup]="userForm" (ngSubmit)="createUser()" >
+            <form [formGroup]="userForm" (ngSubmit)="createUser()"enctype="multipart/form-data"  >
                     <legend>Create User</legend>
 
                 <div class="form-group row">
@@ -47,19 +47,26 @@
                     </div>
                 </div>
                   
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [formControlName]="'profil'" >
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" [formControlName]="'type'" >
                     <option selected>Select a profil</option>
                     <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
                   </select>
-                {{userForm.value | json}}
+
+                  <div class="col-md-3">
+                    <label for="file" style="margin-bottom: 0; margin-top: 5px; display: inline-flex">
+                        <input id="file" type="file" [formControlName]="'avatar'" (change)="SelectedFile($event.target.files)" class="hide-upload" required/>
+                        <i class="fa fa-plus image-plus"></i>
+                        <img [src]="imageUrl" alt="" >
+                     
+                     </label>
+                </div>
+              
                 <div>
                     <button  type="submit" class="btn btn-primary btn-lg btn-block">SOUMETTRE</button>
                 </div>
-       
             </form>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="" ><i class="far fa-user fa-7x"></i>
-        </div>
+        
+   
     </div>
 </div> 

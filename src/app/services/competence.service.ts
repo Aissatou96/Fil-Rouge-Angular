@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
    
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { User } from '../user/models/user';
+import { Competence } from '../competences/competence';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class UserService {
-
+export class CompetenceService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -22,30 +19,36 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<User[]> {
-    return this.httpClient.get<User[]>('/api/admin/users')
+  getAll(): Observable<Competence[]> {
+    return this.httpClient.get<Competence[]>('/admin/competences')
     .pipe(
       catchError(this.errorHandler)
     )
   }
    
-  create(user): Observable<User> {
-    return this.httpClient.post<User>(environment.apiUrl + '/admin/users', user);
+  create(user): Observable<Competence> {
+    return this.httpClient.post<Competence>(environment.apiUrl + '/admin/competences', JSON.stringify(user), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }  
    
-  getOne(id): Observable<User> {
-    return this.httpClient.get<User>(environment.apiUrl + '/admin/users/' + id)
+  getOne(id): Observable<Competence> {
+    return this.httpClient.get<Competence>(environment.apiUrl + '/admin/competences' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
    
-  update(id, user): Observable<User> {
-    return this.httpClient.put<User>(environment.apiUrl + '/admin/users/' + id,user);
+  update(id, user): Observable<Competence> {
+    return this.httpClient.put<Competence>(environment.apiUrl + '/admin/competences' + id, JSON.stringify(user), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
    
   delete(id){
-    return this.httpClient.delete<User>(environment.apiUrl + '/admin/users/' + id, this.httpOptions)
+    return this.httpClient.delete<Competence>(environment.apiUrl + '/admin/competences' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -62,5 +65,4 @@ export class UserService {
     return throwError(errorMessage);
  }
 
- 
 }

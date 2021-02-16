@@ -37,36 +37,21 @@ const routes: Routes = [
 
   { path:"home", component: HomeComponent},
 
-
   { path: 'addProfil', component: CreateProfilComponent },
-  { 
-    path:'profils', 
-    component:ListProfilsComponent, 
-    children:[
-                { path: ':id/detail', component: DetailProfilComponent },  
-                { path: ':id/edit', component: EditProfilComponent }
-             ] 
-  },
-
-  { path:"addUser", component:CreateUserComponent},
-  { 
-    path:"users", 
-    component:ListUsersComponent,
-    children:[
-              { path:':id/detail', component:DetailUserComponent},
-              { path:':id/edit', component:EditUserComponent}
-             ]
-  },
-
-  { path: 'addPS', component: CreateProfilSortieComponent},
-  { 
-    path: 'profilsSortie', component:ListProfilsSortieComponent,
-    children:[
-                { path: ':id/detail', component:DetailProfilSortieComponent },  
-                { path: ':id/edit', component: EditProfilSortieComponent }
-             ]
-  },
-
+  { path:'profils', component:ListProfilsComponent }, 
+  { path: 'profils/detail/:id', component: DetailProfilComponent }, 
+  { path: 'profils/edit/:id', component: EditProfilComponent }, 
+               
+  { path:"addUser", component:CreateUserComponent },
+  { path:'users', component:ListUsersComponent },
+  { path:'users/detail:id', component:DetailUserComponent},
+  { path:'users/edit/:id', component:EditUserComponent},
+             
+  { path: 'addPS', component: CreateProfilSortieComponent },
+  { path: 'profilsSortie', component:ListProfilsSortieComponent },
+  { path: 'ps/id/detail', component:DetailProfilSortieComponent },  
+  { path: 'ps/id/edit', component: EditProfilSortieComponent },
+           
   { path: 'addCompet', component:CreateCompetenceComponent },
   { path:'compet', component:ListCompetencesComponent },
 
@@ -75,7 +60,7 @@ const routes: Routes = [
     path: 'grpCompet', 
     component:ListGrpCompComponent,
     children:[
-                { path:':id/edit', component:EditGrpCompComponent }
+                { path:'id/edit', component:EditGrpCompComponent }
              ]
   },
 
@@ -83,8 +68,8 @@ const routes: Routes = [
   {
     path: 'refs', component:ListReferentielsComponent,
     children:[
-              { path:':id/edit', component:EditReferentielComponent },
-              { path:':id/detail', component:DetailReferentielComponent}
+              { path:'id/edit', component:EditReferentielComponent },
+              { path:'id/detail', component:DetailReferentielComponent}
              ]
   },
 

@@ -21,7 +21,7 @@ export class ReferentielService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Referentiel[]> {
-    return this.httpClient.get<Referentiel[]>('/admin/referentiels')
+    return this.httpClient.get<Referentiel[]>('api/admin/referentiels')
     .pipe(
       catchError(this.errorHandler)
     )
