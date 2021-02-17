@@ -44,13 +44,13 @@ const routes: Routes = [
                
   { path:"addUser", component:CreateUserComponent },
   { path:'users', component:ListUsersComponent },
-  { path:'users/detail:id', component:DetailUserComponent},
+  { path:'users/detail/:id', component:DetailUserComponent},
   { path:'users/edit/:id', component:EditUserComponent},
              
   { path: 'addPS', component: CreateProfilSortieComponent },
   { path: 'profilsSortie', component:ListProfilsSortieComponent },
-  { path: 'ps/id/detail', component:DetailProfilSortieComponent },  
-  { path: 'ps/id/edit', component: EditProfilSortieComponent },
+  { path: 'ps/detail/:id', component:DetailProfilSortieComponent },  
+  { path: 'ps/edit/:id', component: EditProfilSortieComponent },
            
   { path: 'addCompet', component:CreateCompetenceComponent },
   { path:'compet', component:ListCompetencesComponent },

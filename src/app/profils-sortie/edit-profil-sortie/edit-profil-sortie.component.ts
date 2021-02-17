@@ -36,7 +36,7 @@ export class EditProfilSortieComponent implements OnInit {
     console.log(this.profilSForm.value);
       this.psService.update(this.id, this.profilSForm.value).subscribe(res => {
            console.log('Profil de Sortie updated successfully!');
-           this.router.navigateByUrl('profilsSortie');
+           this.router.navigateByUrl('ps');
       })
   }
 

@@ -30,7 +30,7 @@ export class UserService {
   }
    
   create(user): Observable<User> {
-    return this.httpClient.post<User>(environment.apiUrl + '/admin/users', user);
+    return this.httpClient.post<User>('http://127.0.0.1:8000/api/admin/users', user);
   }  
    
   getOne(id): Observable<User> {
@@ -40,8 +40,8 @@ export class UserService {
     )
   }
    
-  update(id, user): Observable<User> {
-    return this.httpClient.put<User>(environment.apiUrl + '/admin/users/' + id,user);
+  update(id: number, user: any): Observable<any> {
+    return this.httpClient.put<any>(environment.apiUrl + '/admin/users/' + id,user, this.httpOptions);
   }
    
   delete(id){

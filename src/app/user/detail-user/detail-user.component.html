@@ -1,47 +1,47 @@
 <div class="container">
-    
-    <h1>DETAIL DE L'UTILISATEUR</h1>
+    <div class="notprint">
+        <h1>DETAIL DE L'UTILISATEUR</h1>
   
-    <a [routerLink]='["/users"]' class="btn btn-primary">Back</a>
-   
-    <div>
-        <h2>ID:</h2>
-        <p>{{ user.id }}</p>
+        <a [routerLink]='["/users"]' class="btn btn-primary">Back</a>
     </div>
    
-    <div>
-        <h2>Avatar:</h2>
-        <p>{{ user.avatar }}</p>
-    </div>
-
-    <div>
-        <h2>Prenom:</h2>
-        <p>{{ user.prenom }}</p>
-    </div>
-
-    <div>
-        <h2>Nom:</h2>
-        <p>{{ user.nom }}</p>
-    </div>
    
-    <div>
-        <h2>Email:</h2>
-        <p>{{ user.email }}</p>
-    </div>
     
-    <div>
-        <h2>Username:</h2>
-        <p>{{ user.username }}</p>
-    </div>
+        <div class="row">
+            <div class="col-sm-4 d-flex justify-content-start" width="150px" height="150px">
+                <ngx-qrcode
+                    [elementType]="elementType"
+                    [errorCorrectionLevel]="correctionLevel"
+                    [value]="value"
+                    cssClass="bshadow">
+                </ngx-qrcode>
+            </div>
+            <div class="col-sm-4">
+                <p>Prénom:{{user.prenom}}</p>
 
-    <div>
-        <h2>Statut:</h2>
-        <p>{{ user.statut }}</p>
-    </div>
 
-    <div>
-        <h2>Profil:</h2>
-        <p>{{ user.profil}}</p>
-    </div>
+                <p>Nom:{{user.nom}}</p>
+             
 
+                <p>Email:{{user.email}}</p>
+           
+
+                <p>Username:{{user.username}}</p>
+             
+
+                <p>Profil:{{user['@type']}}</p>
+            
+
+            </div>
+            <div class="col-sm-4 d-flex justify-content-end">
+                <img src="data:image/jpeg;base64,{{user.avatar }}" class="rounded-circle" width="150px" height="150px" alt="">
+            </div>
+       
+            <button class="notprint" (click)="print()">Imprimer</button>
+        </div>
+
+
+    
+    
+    
 </div>

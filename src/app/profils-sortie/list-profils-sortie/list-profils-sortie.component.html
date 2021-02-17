@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <h2> liste des Profils</h2>
+  <h2> liste des Profils de Sortie</h2>
     <a [routerLink]='["/addPS"]'><i class="fas fa-user-plus"></i></a>
 
 <table class="table table-striped">
@@ -17,8 +17,8 @@
         <td>{{ profilS.id }}</td>
         <td>{{ profilS.libelle }}</td>
         <td>
-          <a [routerLink]='["/ps/id/detail"]' class="btn btn-info">View</a>
-          <a [routerLink]='["/ps/id/edit"]' class="btn btn-primary">Edit</a>
+          <a [routerLink]='["/ps/detail",profilS.id]' class="btn btn-info">View</a>
+          <a [routerLink]='["/ps/edit", profilS.id]' class="btn btn-primary">Edit</a>
           <button type="button" (click)="deleteProfilS(profilS.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>

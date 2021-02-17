@@ -29,9 +29,7 @@ export class ProfilSortieService {
    
   create(profilS): Observable<ProfilSortie> {
     return this.httpClient.post<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie', JSON.stringify(profilS), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    
   }  
    
   getOne(id): Observable<ProfilSortie> {
@@ -43,16 +41,12 @@ export class ProfilSortieService {
    
   update(id, profilS): Observable<ProfilSortie> {
     return this.httpClient.put<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id, JSON.stringify(profilS), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    
   }
    
   delete(id){
     return this.httpClient.delete<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id, this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    
   }
     
   

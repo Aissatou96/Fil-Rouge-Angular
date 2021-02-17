@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-//import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -90,7 +90,7 @@ import { ItemGrpCompComponent } from './groupe-competences/list-grp-comp/item-gr
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    //NgxQRCodeModule
+    NgxQRCodeModule
     
   ],
   providers: [
