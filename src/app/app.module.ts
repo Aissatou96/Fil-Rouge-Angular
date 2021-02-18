@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
+import { DataTablesModule } from "angular-datatables";
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -42,6 +45,7 @@ import { DashboardCmComponent } from './cm/dashboard-cm/dashboard-cm.component';
 import { ItemReferentielComponent } from './referentiel/list-referentiels/item-referentiel/item-referentiel.component';
 import { DetailReferentielComponent } from './referentiel/detail-referentiel/detail-referentiel.component';
 import { ItemGrpCompComponent } from './groupe-competences/list-grp-comp/item-grp-comp/item-grp-comp.component';
+
 //import { IfRolesDirective } from './if-roles.directive';
 
 @NgModule({
@@ -81,8 +85,7 @@ import { ItemGrpCompComponent } from './groupe-competences/list-grp-comp/item-gr
     DashboardCmComponent,
     ItemReferentielComponent,
     DetailReferentielComponent,
-    ItemGrpCompComponent,
-    //IfRolesDirective
+    ItemGrpCompComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { ItemGrpCompComponent } from './groupe-competences/list-grp-comp/item-gr
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    DataTablesModule
     
   ],
   providers: [

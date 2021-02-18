@@ -41,7 +41,8 @@ export class EditUserComponent implements OnInit {
         'username':new FormControl(),
         'statut':new FormControl(),
         'profil': new FormControl(),
-        'password': new FormControl()
+        'password': new FormControl(),
+        'avatar': new FormControl()
       });
       this.userForm.patchValue({
         username: this.user.username
@@ -54,16 +55,18 @@ export class EditUserComponent implements OnInit {
       this.imageUrl = event.target.result;
     };
     reader.readAsDataURL(this.image);
+    
+    
   }
   updateUser(){
     const user = new FormData();
      user.append('prenom',this.userForm.value.prenom);
      user.append('nom',this.userForm.value.nom);
      user.append('email',this.userForm.value.email);
-     user.append('username',this.userForm.value.prenom);
+     user.append('username',this.userForm.value.username);
      user.append('password',this.userForm.value.password);
      user.append('statut',this.userForm.value.statut);
-     user.append('type',this.userForm.value.type);
+     user.append('type',this.userForm.value.profil);
      user.append('avatar',this.image);
      console.log(this.userForm.value);
     console.log(this.userForm.value);

@@ -2,7 +2,7 @@
 <app-header></app-header>
 <div class="container">
   <h2>LISTE DES UTILISATEURS</h2>
-<table class="table table-striped">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
     <thead>
       <tr>
         <th scope="col">Id</th>

@@ -11,7 +11,8 @@ import { ProfilService } from '../../services/profil.service';
 export class DetailProfilComponent implements OnInit {
 
   id: number;
-  profil: Profil;
+  users: any;
+  libelle = '';
 
   constructor(
     public profilService:ProfilService,
@@ -20,10 +21,13 @@ export class DetailProfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.params['id']; 
-    this.profilService.getOne(this.id).subscribe((data: Profil)=>{
-      this.profil = data;
-      console.log(data);
+    this.profilService.getOne(this.id).subscribe((data: any)=>{
+      this.users = data.users;
+      this.libelle = data.libelle;
       
+      
+      
+    },(error)=>{console.log(error);
     });
   }
 

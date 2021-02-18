@@ -23,7 +23,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<User[]> {
-    return this.httpClient.get<User[]>('/api/admin/users')
+    return this.httpClient.get<User[]>('/api/admin/users?archive=0')
     .pipe(
       catchError(this.errorHandler)
     )
@@ -41,7 +41,7 @@ export class UserService {
   }
    
   update(id: number, user: any): Observable<any> {
-    return this.httpClient.put<any>(environment.apiUrl + '/admin/users/' + id,user, this.httpOptions);
+    return this.httpClient.put<any>(environment.apiUrl + '/admin/users/' + id,user);
   }
    
   delete(id){

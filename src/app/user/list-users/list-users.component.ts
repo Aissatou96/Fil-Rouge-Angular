@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../../services/user.service';
+import { Subject } from 'rxjs';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-list-users',
@@ -9,16 +11,31 @@ import { UserService } from '../../services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  users : User[] = [];
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
+  users : User[] = [];
+  @ViewChild(DataTableDirective) dtElement: DataTableDirective;
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true,
+      autoWidth: true,
+      order: [[0, 'desc']],
+      lengthMenu: [5,6,7]
+    };
     this.userService.getAll().subscribe((data: User[])=>{
-      this.users = data['hydra:member'];
+      this.users=data['hydra:member'];
+      this.dtTrigger.next();
       console.log(this.users);
-    })  
+    }) 
+    
   }
+
+  
   
   deleteUser(id){
     this.userService.delete(id).subscribe(res => {

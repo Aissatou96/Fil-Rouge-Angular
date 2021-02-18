@@ -21,10 +21,8 @@ export class ProfilSortieService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<ProfilSortie[]> {
-    return this.httpClient.get<ProfilSortie[]>(environment.apiUrl + '/admin/profils_sortie')
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    return this.httpClient.get<ProfilSortie[]>(environment.apiUrl + '/admin/profils_sortie');
+   
   }
    
   create(profilS): Observable<ProfilSortie> {
@@ -33,19 +31,17 @@ export class ProfilSortieService {
   }  
    
   getOne(id): Observable<ProfilSortie> {
-    return this.httpClient.get<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+    return this.httpClient.get<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie/' + id);
+    
   }
    
   update(id, profilS): Observable<ProfilSortie> {
-    return this.httpClient.put<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id, JSON.stringify(profilS), this.httpOptions)
+    return this.httpClient.put<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie/' + id, JSON.stringify(profilS), this.httpOptions)
     
   }
    
   delete(id){
-    return this.httpClient.delete<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie' + id, this.httpOptions)
+    return this.httpClient.delete<ProfilSortie>(environment.apiUrl + '/admin/profils_sortie/' + id, this.httpOptions)
     
   }
     

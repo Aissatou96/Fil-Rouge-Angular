@@ -4,9 +4,6 @@
   
         <a [routerLink]='["/users"]' class="btn btn-primary">Back</a>
     </div>
-   
-   
-    
         <div class="row">
             <div class="col-sm-4 d-flex justify-content-start" width="150px" height="150px">
                 <ngx-qrcode
@@ -17,19 +14,19 @@
                 </ngx-qrcode>
             </div>
             <div class="col-sm-4">
-                <p>Prénom:{{user.prenom}}</p>
+                <p>PRENOM: {{user.prenom}}</p>
 
 
-                <p>Nom:{{user.nom}}</p>
+                <p>NOM: {{user.nom}}</p>
              
 
-                <p>Email:{{user.email}}</p>
+                <p>EMAIL: {{user.email}}</p>
            
 
-                <p>Username:{{user.username}}</p>
+                <p>USERNAME: {{user.username}}</p>
              
 
-                <p>Profil:{{user['@type']}}</p>
+                <p>PROFIL: {{user['@type']}}</p>
             
 
             </div>
@@ -39,9 +36,4 @@
        
             <button class="notprint" (click)="print()">Imprimer</button>
         </div>
-
-
-    
-    
-    
 </div>

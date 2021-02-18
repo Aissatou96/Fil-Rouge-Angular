@@ -24,7 +24,7 @@ export class EditProfilSortieComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this.route.snapshot.params['id'];
       this.psService.getOne(this.id).subscribe((data: ProfilSortie)=>{
-        this.profilSortie = data['hydra:member'];
+        this.profilSortie = data;
       });
       
       this.profilSForm = new FormGroup({
@@ -36,7 +36,7 @@ export class EditProfilSortieComponent implements OnInit {
     console.log(this.profilSForm.value);
       this.psService.update(this.id, this.profilSForm.value).subscribe(res => {
            console.log('Profil de Sortie updated successfully!');
-           this.router.navigateByUrl('ps');
+           this.router.navigateByUrl('profilsSortie');
       })
   }
 

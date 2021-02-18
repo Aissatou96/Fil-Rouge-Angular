@@ -17,8 +17,8 @@
         <td>{{ profilS.id }}</td>
         <td>{{ profilS.libelle }}</td>
         <td>
-          <a [routerLink]='["/ps/detail",profilS.id]' class="btn btn-info">View</a>
-          <a [routerLink]='["/ps/edit", profilS.id]' class="btn btn-primary">Edit</a>
+          <a [routerLink]='["/ps/detail/",profilS.id]' class="btn btn-info">View</a>
+          <a [routerLink]='["/ps/edit/", profilS.id]' class="btn btn-primary">Edit</a>
           <button type="button" (click)="deleteProfilS(profilS.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
