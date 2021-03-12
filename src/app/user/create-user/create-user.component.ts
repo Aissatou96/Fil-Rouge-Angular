@@ -55,7 +55,7 @@ export class CreateUserComponent implements OnInit {
     this.userService.create(user).subscribe(
       (res) => {
       console.log('User created successfully!');
-      //this.router.navigateByUrl('users');
+      this.router.navigateByUrl('users');
     },(error)=>{
       console.log(error);
       

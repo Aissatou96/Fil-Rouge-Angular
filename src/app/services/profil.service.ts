@@ -21,7 +21,7 @@ export class ProfilService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Profil[]> {
-    return this.httpClient.get<Profil[]>('/api/admin/profils')
+    return this.httpClient.get<Profil[]>('/api/admin/profils?archive=0')
     .pipe(
       catchError(this.errorHandler)
     )

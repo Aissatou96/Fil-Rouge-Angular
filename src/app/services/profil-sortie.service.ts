@@ -21,7 +21,7 @@ export class ProfilSortieService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<ProfilSortie[]> {
-    return this.httpClient.get<ProfilSortie[]>(environment.apiUrl + '/admin/profils_sortie');
+    return this.httpClient.get<ProfilSortie[]>(environment.apiUrl + '/admin/profils_sortie?archive=0');
    
   }
    

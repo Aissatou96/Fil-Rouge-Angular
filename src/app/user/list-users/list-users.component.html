@@ -1,7 +1,7 @@
 
 <app-header></app-header>
 <div class="container">
-  <h2>LISTE DES UTILISATEURS</h2>
+  <h2>LISTE DES UTILISATEURS <a [routerLink]='["/addUser"]'><i class="fas fa-user-plus"></i></a></h2>
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
     <thead>
       <tr>
